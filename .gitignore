@@ -1,0 +1,7 @@
+# misc
+*.html
+/venv
+/__pycache__
+.idea
+*.sh
+*.txt
