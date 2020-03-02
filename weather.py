@@ -14,20 +14,20 @@ ACCU_KEY = os.environ.get('ACCU_KEY')
 # Weather data
 weather_data = {
     'summary': '',
-    'mon_low': '',
-    'mon_high': '',
-    'tues_low': '',
-    'tues_high': '',
-    'tues_conditions': '',
-    'wed_low': '',
-    'wed_high': '',
-    'wed_conditions': '',
-    'thurs_low': '',
-    'thurs_high': '',
-    'thurs_conditions': '',
-    'fri_low': '',
-    'fri_high': '',
-    'fri_conditions': '',
+    'day1_low': '',
+    'day1_high': '',
+    'day2_low': '',
+    'day2_high': '',
+    'day2_conditions': '',
+    'day3_low': '',
+    'day3_high': '',
+    'day3_conditions': '',
+    'day4_low': '',
+    'day4_high': '',
+    'day4_conditions': '',
+    'day5_low': '',
+    'day5_high': '',
+    'day5_conditions': '',
     'sunrise': '',
     'sunset': '',
     'wind': '',
@@ -57,24 +57,24 @@ def get_weather():
         weather_data['summary'] = json_response['DailyForecasts'][0]['Day']['LongPhrase']
 
         # monday
-        weather_data['mon_low'] = json_response['DailyForecasts'][0]['Temperature']['Minimum']['Value']
-        weather_data['mon_high'] = json_response['DailyForecasts'][0]['Temperature']['Maximum']['Value']
+        weather_data['day1_low'] = json_response['DailyForecasts'][0]['Temperature']['Minimum']['Value']
+        weather_data['day1_high'] = json_response['DailyForecasts'][0]['Temperature']['Maximum']['Value']
         # tuesday
-        weather_data['tues_low'] = json_response['DailyForecasts'][1]['Temperature']['Minimum']['Value']
-        weather_data['tues_high'] = json_response['DailyForecasts'][1]['Temperature']['Maximum']['Value']
-        weather_data['tues_conditions'] = json_response['DailyForecasts'][1]['Day']['ShortPhrase']
+        weather_data['day2_low'] = json_response['DailyForecasts'][1]['Temperature']['Minimum']['Value']
+        weather_data['day2_high'] = json_response['DailyForecasts'][1]['Temperature']['Maximum']['Value']
+        weather_data['day2_conditions'] = json_response['DailyForecasts'][1]['Day']['ShortPhrase']
         # wednesday
-        weather_data['wed_low'] = json_response['DailyForecasts'][2]['Temperature']['Minimum']['Value']
-        weather_data['wed_high'] = json_response['DailyForecasts'][2]['Temperature']['Maximum']['Value']
-        weather_data['wed_conditions'] = json_response['DailyForecasts'][2]['Day']['ShortPhrase']
+        weather_data['day3_low'] = json_response['DailyForecasts'][2]['Temperature']['Minimum']['Value']
+        weather_data['day3_high'] = json_response['DailyForecasts'][2]['Temperature']['Maximum']['Value']
+        weather_data['day3_conditions'] = json_response['DailyForecasts'][2]['Day']['ShortPhrase']
         # thursday
-        weather_data['thurs_low'] = json_response['DailyForecasts'][3]['Temperature']['Minimum']['Value']
-        weather_data['thues_high'] = json_response['DailyForecasts'][3]['Temperature']['Maximum']['Value']
-        weather_data['thurs_conditions'] = json_response['DailyForecasts'][3]['Day']['ShortPhrase']
+        weather_data['day4_low'] = json_response['DailyForecasts'][3]['Temperature']['Minimum']['Value']
+        weather_data['day4_high'] = json_response['DailyForecasts'][3]['Temperature']['Maximum']['Value']
+        weather_data['day4_conditions'] = json_response['DailyForecasts'][3]['Day']['ShortPhrase']
         # friday
-        weather_data['fri_low'] = json_response['DailyForecasts'][4]['Temperature']['Minimum']['Value']
-        weather_data['fri_high'] = json_response['DailyForecasts'][4]['Temperature']['Maximum']['Value']
-        weather_data['fri_conditions'] = json_response['DailyForecasts'][4]['Day']['ShortPhrase']
+        weather_data['day5_low'] = json_response['DailyForecasts'][4]['Temperature']['Minimum']['Value']
+        weather_data['day5_high'] = json_response['DailyForecasts'][4]['Temperature']['Maximum']['Value']
+        weather_data['day5_conditions'] = json_response['DailyForecasts'][4]['Day']['ShortPhrase']
 
         # sunrise
         weather_data['sunrise'] = get_time(json_response['DailyForecasts'][0]['Sun']['Rise']) + 'am'

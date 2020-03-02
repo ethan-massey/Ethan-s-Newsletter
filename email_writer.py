@@ -1,6 +1,7 @@
 import news
 import weather
 import quote
+import datetime as dt
 
 # delimiters
 f = open('email_accumulator.html', 'r')
@@ -43,12 +44,15 @@ s_accumulator += '<div style="text-align:center; padding-bottom: 20px;">'
 
 
 # Weather
+days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+today = dt.datetime.today().weekday()
+
 s_accumulator += '<h1>Blacksburg Weather</h1>\n'
-s_accumulator += '<li>Today: ' + str(weather.weather_data['mon_high']) + '/' + str(weather.weather_data['mon_low']) + u'\N{DEGREE SIGN}F. ' + weather.weather_data['summary'] + '. ' + 'Wind: ' + weather.weather_data['wind'] + '. Precip: ' + weather.weather_data['precip'] + '. Sunrise: ' + weather.weather_data['sunrise'] + '. Sunset: ' + weather.weather_data['sunset'] + '.</li>\n'
-s_accumulator += '<li>Tuesday: ' + str(weather.weather_data['tues_high']) + '/' + str(weather.weather_data['tues_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['tues_conditions']) + '</li>\n'
-s_accumulator += '<li>Wednesday: ' + str(weather.weather_data['wed_high']) + '/' + str(weather.weather_data['wed_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['wed_conditions']) + '</li>\n'
-s_accumulator += '<li>Thursday: ' + str(weather.weather_data['thurs_high']) + '/' + str(weather.weather_data['thurs_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['thurs_conditions']) + '</li>\n'
-s_accumulator += '<li>Friday: ' + str(weather.weather_data['fri_high']) + '/' + str(weather.weather_data['fri_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['fri_conditions']) + '</li>\n'
+s_accumulator += '<li>Today: ' + str(weather.weather_data['day1_high']) + '/' + str(weather.weather_data['day1_low']) + u'\N{DEGREE SIGN}F. ' + weather.weather_data['summary'] + '. ' + 'Wind: ' + weather.weather_data['wind'] + '. Precip: ' + weather.weather_data['precip'] + '. Sunrise: ' + weather.weather_data['sunrise'] + '. Sunset: ' + weather.weather_data['sunset'] + '.</li>\n'
+s_accumulator += '<li>' + days_of_week[(today + 1) % 7] + ': ' + str(weather.weather_data['day2_high']) + '/' + str(weather.weather_data['day2_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['day2_conditions']) + '</li>\n'
+s_accumulator += '<li>' + days_of_week[(today + 2) % 7] + ': ' + str(weather.weather_data['day3_high']) + '/' + str(weather.weather_data['day3_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['day3_conditions']) + '</li>\n'
+s_accumulator += '<li>' + days_of_week[(today + 3) % 7] + ': ' + str(weather.weather_data['day4_high']) + '/' + str(weather.weather_data['day4_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['day4_conditions']) + '</li>\n'
+s_accumulator += '<li>' + days_of_week[(today + 4) % 7] + ': ' + str(weather.weather_data['day5_high']) + '/' + str(weather.weather_data['day5_low']) + u'\N{DEGREE SIGN}F, ' + str(weather.weather_data['day5_conditions']) + '</li>\n'
 
 
 s_accumulator += '</div>'
@@ -61,7 +65,7 @@ s_accumulator += '<p>"' + quote.quote_data['quote'] + '" -' + quote.quote_data['
 # full email var used in email sender
 full_email = s_accumulator + s_end
 # writing to file just to keep
-f = open("full_email.html", "w")
-f.write(s_accumulator)
-f.write(s_end)
-f.close()
+# f = open("full_email.html", "w")
+# f.write(s_accumulator)
+# f.write(s_end)
+# f.close()
