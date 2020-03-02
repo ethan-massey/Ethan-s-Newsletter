@@ -1,14 +1,26 @@
 import news
 import weather
 import quote
+import dog_picture as dp
 import datetime as dt
 
 # delimiters
-f = open('email_accumulator.html', 'r')
+f = open('email_part_1.html', 'r')
 s_accumulator = f.read()
 f.close()
 
+f = open('email_part_2.html', 'r')
+after_dog_image = f.read()
+f.close()
+
 s_end = '</div>\n</body>\n</html>\n'
+
+
+''' Add dog picture '''
+dp.get_dog_picture()
+
+s_accumulator += dp.dog_data['url']
+s_accumulator += after_dog_image
 
 
 ''' Add News and Weather - accounts for articles not paired with an image'''
