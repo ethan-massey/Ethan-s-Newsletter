@@ -1,0 +1,2 @@
+# send an email at 9am on Mondays and Thursdays
+0 9 * * 1,4 /path/to/run.sh
