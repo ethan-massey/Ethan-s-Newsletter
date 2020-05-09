@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script can be used to edit the main message at the top of the email.
+
 # 1st arg. surround in single quotes - ''
 new_message=$1
 
